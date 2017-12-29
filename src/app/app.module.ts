@@ -5,12 +5,15 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
-import {RouterModule} from "@angular/router";
-import {routing} from "./app-routing.module";
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
-
+import { ServicesComponent } from './services/services.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
+import { PricingComponent } from './pricing/pricing.component';
+import {RouterModule} from "@angular/router";
+import {routing} from "./app-routing.module";
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +21,18 @@ import { ContactComponent } from './contact/contact.component';
     AboutComponent,
     HeaderComponent,
     FooterComponent,
-    ContactComponent
+    ContactComponent,
+    ServicesComponent,
+    PortfolioComponent,
+    PricingComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     routing
+
   ],
   providers: [],
   bootstrap: [AppComponent]
