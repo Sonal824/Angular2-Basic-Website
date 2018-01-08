@@ -3,26 +3,34 @@
   <div class="row">
     <div class="col-sm-5">
       <p>Contact us and we'll get back to you within 24 hours.</p>
-      <p><span class="glyphicon glyphicon-map-marker"></span> Chicago, US</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Ahmedabad, IN</p>
       <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
-      <p><span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p>
+      <p><span class="glyphicon glyphicon-envelope"></span>sonalpatel824@gmail.com</p>
     </div>
+    <form [formGroup]="contactForm" (submit)="contactUs($event,contactForm)">
     <div class="col-sm-7">
       <div class="row">
         <div class="col-sm-6 form-group">
-          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+          <input class="form-control" id="name" formControlName="name" placeholder="Name" type="text">
+          <div class="text-danger" *ngIf="!contactForm.controls['name'].valid && contactForm.controls['name'].touched">
+            Name is Required
+          </div>
         </div>
         <div class="col-sm-6 form-group">
-          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+          <input class="form-control" id="email" formControlName="email" placeholder="Email" type="email">
+          <div class="text-danger" *ngIf="!contactForm.controls['email'].valid && contactForm.controls['email'].touched">
+            Email is Required
+          </div>
         </div>
       </div>
-      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+      <textarea class="form-control" id="comments" formControlName="comments" placeholder="Comment" rows="5"></textarea><br>
       <div class="row">
         <div class="col-sm-12 form-group">
           <button class="btn btn-default pull-right" type="submit">Send</button>
         </div>
       </div>
     </div>
+    </form>
   </div>
 </div>
 

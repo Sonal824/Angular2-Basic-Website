@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import  {NgxCarousel} from 'ngx-carousel';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-portfolio',
@@ -10,7 +11,7 @@ export class PortfolioComponent implements OnInit {
 
   public carouselOne: NgxCarousel;
 
-  constructor() { }
+  constructor(private title: Title) { title.setTitle('Portfolio'); }
 
 
 

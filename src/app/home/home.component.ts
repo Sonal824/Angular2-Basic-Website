@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms'
+import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -10,8 +11,9 @@ export class HomeComponent implements OnInit {
 
   emailForm: FormGroup;
 
-  constructor(private formbuilder: FormBuilder)
+  constructor(private formbuilder: FormBuilder,private title: Title)
   {
+    title.setTitle('Home');
     this.emailForm = this.formbuilder.group(
       {
         'email' : ['', Validators.required]
