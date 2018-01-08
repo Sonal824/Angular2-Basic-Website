@@ -1,12 +1,15 @@
 <div class="jumbotron text-center">
   <h1>Company</h1>
   <p>We specialize in blablabla</p>
-  <form>
+  <form [formGroup]="emailForm" (submit)="subscribeNewsletter($event,emailForm)">
     <div class="input-group">
-      <input type="email" class="form-control" size="50" placeholder="Email Address" required>
+      <input type="email" class="form-control" formControlName="email" size="50" placeholder="Email Address" required>
       <div class="input-group-btn">
-        <button type="button" class="btn btn-danger">Subscribe</button>
+        <button type="submit" class="btn btn-danger">Subscribe</button>
       </div>
     </div>
+    <div class="text-danger" *ngIf="!emailForm.controls['email'].valid && emailForm.controls['email'].touched">
+        Email is Required
+      </div>
   </form>
 </div>

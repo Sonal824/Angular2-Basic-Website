@@ -14,6 +14,8 @@ import { PricingComponent } from './pricing/pricing.component';
 import {RouterModule} from "@angular/router";
 import {routing} from "./app-routing.module";
 import { HomeComponent } from './home/home.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {NgxCarouselModule} from "ngx-carousel";
 
 @NgModule({
   declarations: [
@@ -31,8 +33,9 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
-
+    routing,
+    ReactiveFormsModule,
+    NgxCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

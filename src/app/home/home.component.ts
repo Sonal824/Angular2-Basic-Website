@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms'
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  emailForm: FormGroup;
+
+  constructor(private formbuilder: FormBuilder)
+  {
+    this.emailForm = this.formbuilder.group(
+      {
+        'email' : ['', Validators.required]
+      }
+    );
+  }
 
   ngOnInit() {
+  }
+
+  subscribeNewsletter(event,formData)
+  {
+    event.preventDefault();
+    console.log(formData);
+    let controls = formData.controls;
+    let email =   controls.email.value;
+
+    if(!formData.valid)
+    {
+      controls.email._touched = true;
+      return false;
+    }
+    else
+    {
+      alert('Thank you for your subscription.');
+    }
+
   }
 
 }
